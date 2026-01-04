@@ -1,0 +1,125 @@
+---
+// Terminal component wrapper
+---
+
+<div id="terminal-container" class="terminal-container"></div>
+
+<script>
+	import { Terminal } from './terminal';
+	
+	// Initialize terminal when DOM is ready
+	function initTerminal() {
+		const container = document.getElementById('terminal-container');
+		if (container) {
+			new Terminal(container);
+		}
+	}
+
+	// Wait for DOM to be ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initTerminal);
+	} else {
+		initTerminal();
+	}
+</script>
+
+<style>
+	.terminal-container {
+		width: 100%;
+		min-width:1080px;
+		max-width: 1280px;
+		background-color: rgba(10, 10, 10, 0.9);
+		backdrop-filter: blur(100px);
+		border: 1px solid rgba(105, 215, 242, 0.3);
+		padding: 20px;
+		font-family: 'Kode Mono', monospace;
+		font-size: 14px;
+		color: #69D7F2;
+		display: flex;
+		flex-direction: column;
+		height: 600px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+	}
+
+	.terminal-output {
+		flex: 1;
+		overflow-y: auto;
+		margin-bottom: 10px;
+		line-height: 1.6;
+	}
+
+	.terminal-output::-webkit-scrollbar {
+		width: 8px;
+	}
+
+	.terminal-output::-webkit-scrollbar-track {
+		background: rgba(105, 215, 242, 0.1);
+		border-radius: 4px;
+	}
+
+	.terminal-output::-webkit-scrollbar-thumb {
+		background: rgba(105, 215, 242, 0.3);
+		border-radius: 4px;
+	}
+
+	.terminal-output::-webkit-scrollbar-thumb:hover {
+		background: rgba(105, 215, 242, 0.5);
+	}
+
+	.terminal-line {
+		margin-bottom: 4px;
+		word-wrap: break-word;
+	}
+
+	.terminal-line.command {
+		color: #69D7F2;
+	}
+
+	.terminal-input-line {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+	}
+
+	.terminal-prompt {
+		color: #69D7F2;
+		flex-shrink: 0;
+	}
+
+	.terminal-input {
+		background: transparent;
+		border: none;
+		outline: none;
+		color: #69D7F2;
+		font-family: 'Kode Mono', monospace;
+		font-size: 14px;
+		flex: 1;
+		min-width: 20px;
+		caret-color: #69D7F2;
+	}
+
+	.terminal-input::placeholder {
+		color: rgba(105, 215, 242, 0.5);
+	}
+
+	/* Optional: Add a visual indicator when terminal is active */
+	.terminal-container:focus-within .terminal-prompt {
+		text-shadow: 0 0 8px rgba(105, 215, 242, 0.5);
+	}
+
+	@keyframes blink {
+		0%, 50% {
+			opacity: 1;
+		}
+		51%, 100% {
+			opacity: 0;
+		}
+	}
+
+	/* Focus state */
+	.terminal-container:focus-within {
+		border-color: rgba(105, 215, 242, 0.6);
+		box-shadow: 0 4px 20px rgba(105, 215, 242, 0.2);
+	}
+</style>
+
