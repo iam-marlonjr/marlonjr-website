@@ -38,3 +38,13 @@
 .font-kode-mono * {
 	font-family: 'Kode Mono', sans-serif;
 }
+
+.mesh-background {
+	position: absolute;
+	inset: 0% 0 0 0;
+	z-index: -1;
+	background:
+		radial-gradient(ellipse 75% 75% at 50% 0%, rgba(105, 215, 242, 0.15), transparent),
+		radial-gradient(ellipse 50% 50% at 50% 0%, rgba(105, 215, 242, 0.1), transparent),
+		radial-gradient(ellipse 25% 25% at 50% 0%, rgba(105, 215, 242, 0.08), transparent);
+}
