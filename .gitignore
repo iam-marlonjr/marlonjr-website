@@ -1,5 +1,8 @@
 # build output
 dist/
+
+# stray SVG assets at project root (use inline SVG in components instead)
+*-svgrepo-com.svg
 # generated types
 .astro/
 
