@@ -36,7 +36,8 @@
 		font-family: 'Kode Mono', monospace;
 		font-size: 14px;
 		color: #69D7F2;
-		caret-color: transparent;
+		caret-color: #69D7F2;
+		caret-shape: block;
 		display: flex;
 		flex-direction: column;
 		height: 60vh;
@@ -98,11 +99,31 @@
 		outline: none;
 		box-shadow: none;
 		color: #69D7F2;
+		caret-shape: block;
 		font-family: 'Kode Mono', monospace;
 		font-size: 14px;
 		flex: 1;
 		min-width: 20px;
 		caret-color: #69D7F2;
+	}
+
+	.terminal-input:focus,
+	.terminal-input:focus-visible {
+		outline: none !important;
+		outline-width: 0 !important;
+		outline-style: none !important;
+		box-shadow: none !important;
+		border: none !important;
+	}
+
+	/* Higher specificity so browser default focus ring is overridden (e.g. Safari) */
+	#terminal-container .terminal-input:focus,
+	#terminal-container .terminal-input:focus-visible {
+		outline: none !important;
+		outline-width: 0 !important;
+		outline-style: none !important;
+		box-shadow: none !important;
+		border: none !important;
 	}
 
 	.terminal-input::placeholder {
